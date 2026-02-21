@@ -59,107 +59,233 @@
             </p>
     </section>
 
-<section id="cesar">
-<h1>Cifrado César</h1>
+    <section id="cesar">
+        <h1>Cifrado César</h1>
 
-<p>
-El cifrado César desplaza cada carácter un número fijo de posiciones dentro
-del alfabeto.
-</p>
+            <p>
+            El cifrado César desplaza cada carácter un número fijo de posiciones dentro
+                del alfabeto.
+            </p>
 
-<pre>
-C = (P + k) mod n
-</pre>
+        <pre>
+            C = (P + k) mod n
+        </pre>
 
-<ul>
-<li>P → posición original</li>
-<li>k → desplazamiento</li>
-<li>n → tamaño del alfabeto</li>
-</ul>
+        <ul>
+            <li>P → posición original</li>
+            <li>k → desplazamiento</li>
+            <li>n → tamaño del alfabeto</li>
+        </ul>
 
-</section>
+    </section>
 
-<section id="atbash">
-<h1>Cifrado Atbash</h1>
+    <section id="atbash">
+        <h1>Cifrado Atbash</h1>
 
-<p>
-El cifrado Atbash invierte completamente el alfabeto estableciendo una relación
-simétrica entre caracteres.
-</p>
+        <p>
+            El cifrado Atbash invierte completamente el alfabeto estableciendo una relación
+            simétrica entre caracteres.
+        </p>
+            <pre>
+                A ↔ Z
+                B ↔ Y
+                C ↔ X
+            </pre>
 
-<pre>
-A ↔ Z
-B ↔ Y
-C ↔ X
-</pre>
+    </section>
 
-</section>
+    <section id="alkindi">
+            <h1>Aporte de Al-Kindi</h1>
 
-<section id="alkindi">
-<h1>Aporte de Al-Kindi</h1>
+                <p>
+                    Abū Yūsuf Ya‘qūb ibn Isḥāq al-Kindī fue pionero en el análisis criptográfico.
+                    Desarrolló el análisis de frecuencia, técnica que permite romper cifrados
+                    por sustitución analizando la repetición estadística de caracteres.
+                </p>
 
-<p>
-Abū Yūsuf Ya‘qūb ibn Isḥāq al-Kindī fue pionero en el análisis criptográfico.
-Desarrolló el análisis de frecuencia, técnica que permite romper cifrados
-por sustitución analizando la repetición estadística de caracteres.
-</p>
+                <p>
+                    Gracias a este descubrimiento, métodos como César y Atbash dejaron de ser
+                    seguros para proteger información sensible.
+                </p>
 
-<p>
-Gracias a este descubrimiento, métodos como César y Atbash dejaron de ser
-seguros para proteger información sensible.
-</p>
+    </section>
 
-</section>
+    <section id="documentacionCodigo">
 
-<section id="codigo">
-<h1>Arquitectura del Código</h1>
+            <h1>Documentación Técnica del Código</h1>
 
-<h3>Alfabetos</h3>
+                <p>
+                    El sistema fue desarrollado utilizando JavaScript bajo un enfoque modular,
+                    permitiendo separar la lógica criptográfica, la manipulación de la interfaz
+                    y el procesamiento de caracteres. A continuación se describe el funcionamiento
+                    interno de cada componente principal del programa.
+                </p>
 
-<pre>
-const MAYUS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const MINUS = "abcdefghijklmnopqrstuvwxyz";
-const NUMS = "0123456789";
-</pre>
+                <hr>
 
-<h3>Conversión ASCII</h3>
+                <h2>1. Definición de alfabetos</h2>
 
-<pre>
-char.charCodeAt(0);
-</pre>
+                <pre>
+                    const MAYUS = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+                    const MINUS = "abcdefghijklmnñopqrstuvwxyz";
+                    const NUMS = "0123456789";
+                </pre>
 
-<p>
-El sistema transforma caracteres en valores numéricos ASCII para mostrar
-el procesamiento interno del cifrado.
-</p>
+                <p>
+                    Se definen constantes que almacenan los conjuntos de caracteres utilizados
+                    durante el cifrado y descifrado. Esto permite que el sistema trabaje con
+                    alfabetos personalizados incluyendo el alfabeto español con la letra ñ
+                    y valores numéricos. El tamaño del alfabeto determina el módulo matemático
+                    utilizado en los cálculos criptográficos.
+                </p>
 
-</section>
+                <hr>
 
-<section id="seguridad">
-<h1>Seguridad</h1>
+                <h2>2. Selección del método de cifrado</h2>
 
-<p>
-La documentación se encuentra protegida mediante verificación de acceso,
-evitando la visualización directa sin autorización.
-</p>
+                <pre>
+                    function seleccionarMetodo(tipo){
+                        metodoActual = tipo;
+                    }
+                </pre>
 
-</section>
+                <p>
+                    Esta función registra el algoritmo seleccionado por el usuario desde la
+                    interfaz gráfica. El sistema puede alternar dinámicamente entre el cifrado
+                    César y el cifrado Atbash sin necesidad de recargar la aplicación.
+                </p>
 
-<section id="conclusion">
-<h1>Conclusión</h1>
+                <hr>
 
-<p>
-El desarrollo del sistema permitió comprender la evolución de la criptografía,
-demostrando cómo los métodos clásicos pueden implementarse computacionalmente
-y por qué ya no representan mecanismos seguros en la actualidad.
-</p>
+                <h2>3. Implementación del Cifrado César</h2>
 
-</section>
+                <pre>
+                    function cifradoCesar(texto, desplazamiento, alfabeto){
+                    // procesamiento del texto
+                    }
+                </pre>
 
-</main>
-</div>
+                <p>
+                    El cifrado César funciona desplazando cada carácter una cantidad fija de
+                    posiciones dentro del alfabeto seleccionado. Para lograrlo, el sistema
+                    obtiene la posición del carácter y aplica aritmética modular.
+                </p>
 
-<script src="script.js"></script>
+                <pre>
+                    C = (P + k) mod n
+                </pre>
 
-</body>
-</html>
+                <ul>
+                    <li>P: posición original del carácter</li>
+                    <li>k: desplazamiento seleccionado</li>
+                    <li>n: longitud del alfabeto</li>
+                </ul>
+
+                <p>
+                    El uso del operador módulo permite que el desplazamiento continúe desde
+                    el inicio del alfabeto cuando se alcanza el final del mismo.
+                </p>
+
+                <hr>
+
+                <h2>4. Implementación del Cifrado Atbash</h2>
+
+                <pre>
+                    function cifradoAtbash(texto, alfabeto){
+                    // sustitución inversa
+                    }
+                </pre>
+
+                <p>
+                    El algoritmo Atbash realiza una sustitución simétrica invirtiendo el orden
+                    del alfabeto. Cada carácter se reemplaza por su equivalente opuesto,
+                    estableciendo una relación fija entre posiciones.
+                </p>
+
+                <pre>
+                    A ↔ Z
+                    B ↔ Y
+                    C ↔ X
+                </pre>
+
+                <p>
+                    Debido a su naturaleza simétrica, el mismo proceso sirve tanto para cifrar
+                    como para descifrar mensajes.
+                </p>
+
+                <hr>
+
+                <h2>5. Conversión y visualización ASCII</h2>
+
+                <pre>
+                    char.charCodeAt(0);
+                </pre>
+
+                <p>
+                    El sistema convierte cada carácter en su valor numérico ASCII para mostrar
+                    cómo la información textual puede representarse internamente mediante números.
+                    Esta visualización permite comprender el procesamiento digital aplicado
+                    durante el cifrado.
+                </p>
+
+                <hr>
+
+                <h2>6. Interacción con la interfaz (DOM)</h2>
+
+                <pre>
+                    document.getElementById("entrada").value;
+                </pre>
+
+                <p>
+                    Se emplea manipulación del Document Object Model (DOM) para capturar los
+                    datos ingresados por el usuario y actualizar dinámicamente los resultados
+                    del cifrado y descifrado dentro de la página web sin recargar el navegador.
+                </p>
+
+                <hr>
+
+                <h2>7. Flujo general del sistema</h2>
+
+                <ol>
+                    <li>El usuario selecciona el tipo de cifrado.</li>
+                    <li>Se define el alfabeto y el módulo matemático.</li>
+                    <li>Se ingresa el texto a procesar.</li>
+                    <li>El sistema aplica el algoritmo correspondiente.</li>
+                    <li>Se muestra el resultado cifrado junto con su representación ASCII.</li>
+                </ol>
+
+                <p>
+                    Este flujo permite demostrar de forma visual y práctica el funcionamiento
+                    de algoritmos criptográficos clásicos dentro de un entorno web interactivo.
+                </p>
+
+    </section>
+
+        <section id="seguridad">
+            <h1>Seguridad</h1>
+
+                <p>
+                    La documentación se encuentra protegida mediante verificación de acceso,
+                    evitando la visualización directa sin autorización.
+                </p>
+
+        </section>
+
+        <section id="conclusion">
+            <h1>Conclusión</h1>
+
+                <p>
+                    El desarrollo del sistema permitió comprender la evolución de la criptografía,
+                    demostrando cómo los métodos clásicos pueden implementarse computacionalmente
+                    y por qué ya no representan mecanismos seguros en la actualidad.
+                </p>
+
+        </section>
+
+    </main>
+    </div>
+
+    <script src="script.js"></script>
+
+    </body>
+    </html>
