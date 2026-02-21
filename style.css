@@ -118,3 +118,49 @@ background:#0ea5e9;
 color:#ef4444;
 margin-top:10px;
 }
+
+/* ===== BOTON HAMBURGUESA ===== */
+
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+padding:10px;
+color:#38bdf8;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:768px){
+
+.menu-toggle{
+display:block;
+position:fixed;
+top:15px;
+left:15px;
+z-index:1000;
+background:#020617;
+border-radius:6px;
+}
+
+#menu{
+position:fixed;
+top:0;
+left:-250px;
+width:250px;
+height:100%;
+background:#020617;
+padding-top:60px;
+transition:0.3s;
+box-shadow:2px 0 10px rgba(0,0,0,.5);
+}
+
+#menu.active{
+left:0;
+}
+
+#menu a{
+display:block;
+padding:15px;
+border-bottom:1px solid #1e293b;
+}
+}
