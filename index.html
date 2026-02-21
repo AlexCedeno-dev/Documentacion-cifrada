@@ -6,6 +6,146 @@
     <title>Document</title>
 </head>
 <body>
-    
+
+    <div class="layout">
+<!-- MENU LATERAL -->
+    <nav class="sidebar">
+        <h2>📘 Documentación</h2>
+
+            <a href="#intro">Introducción</a>
+            <a href="#objetivo">Objetivo</a>
+            <a href="#cesar">Cifrado César</a>
+            <a href="#atbash">Cifrado Atbash</a>
+            <a href="#alkindi">Al-Kindi</a>
+            <a href="#codigo">Arquitectura del Código</a>
+            <a href="#seguridad">Seguridad</a>
+            <a href="#conclusion">Conclusión</a>
+
+        </nav>
+
+<!-- CONTENIDO -->
+    <main class="content">
+
+    <section id="intro">
+        <h1>Introducción</h1>
+            <p>
+                El presente sistema web implementa algoritmos clásicos de criptografía
+                permitiendo cifrar y descifrar mensajes mediante los métodos César y Atbash.
+                El proyecto demuestra la aplicación de aritmética modular y representación ASCII
+                en un entorno web interactivo.
+            </p>
+    </section>
+
+    <section id="objetivo">
+        <h1>Objetivo</h1>
+            <p>
+                Desarrollar una aplicación web capaz de cifrar y descifrar mensajes utilizando
+                métodos criptográficos clásicos, permitiendo seleccionar alfabetos personalizados
+                y visualizar el procesamiento interno mediante códigos ASCII.
+            </p>
+    </section>
+
+<section id="cesar">
+<h1>Cifrado César</h1>
+
+<p>
+El cifrado César desplaza cada carácter un número fijo de posiciones dentro
+del alfabeto.
+</p>
+
+<pre>
+C = (P + k) mod n
+</pre>
+
+<ul>
+<li>P → posición original</li>
+<li>k → desplazamiento</li>
+<li>n → tamaño del alfabeto</li>
+</ul>
+
+</section>
+
+<section id="atbash">
+<h1>Cifrado Atbash</h1>
+
+<p>
+El cifrado Atbash invierte completamente el alfabeto estableciendo una relación
+simétrica entre caracteres.
+</p>
+
+<pre>
+A ↔ Z
+B ↔ Y
+C ↔ X
+</pre>
+
+</section>
+
+<section id="alkindi">
+<h1>Aporte de Al-Kindi</h1>
+
+<p>
+Abū Yūsuf Ya‘qūb ibn Isḥāq al-Kindī fue pionero en el análisis criptográfico.
+Desarrolló el análisis de frecuencia, técnica que permite romper cifrados
+por sustitución analizando la repetición estadística de caracteres.
+</p>
+
+<p>
+Gracias a este descubrimiento, métodos como César y Atbash dejaron de ser
+seguros para proteger información sensible.
+</p>
+
+</section>
+
+<section id="codigo">
+<h1>Arquitectura del Código</h1>
+
+<h3>Alfabetos</h3>
+
+<pre>
+const MAYUS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const MINUS = "abcdefghijklmnopqrstuvwxyz";
+const NUMS = "0123456789";
+</pre>
+
+<h3>Conversión ASCII</h3>
+
+<pre>
+char.charCodeAt(0);
+</pre>
+
+<p>
+El sistema transforma caracteres en valores numéricos ASCII para mostrar
+el procesamiento interno del cifrado.
+</p>
+
+</section>
+
+<section id="seguridad">
+<h1>Seguridad</h1>
+
+<p>
+La documentación se encuentra protegida mediante verificación de acceso,
+evitando la visualización directa sin autorización.
+</p>
+
+</section>
+
+<section id="conclusion">
+<h1>Conclusión</h1>
+
+<p>
+El desarrollo del sistema permitió comprender la evolución de la criptografía,
+demostrando cómo los métodos clásicos pueden implementarse computacionalmente
+y por qué ya no representan mecanismos seguros en la actualidad.
+</p>
+
+</section>
+
+</main>
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
