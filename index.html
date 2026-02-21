@@ -126,92 +126,92 @@
                 <h2>1. Definición de alfabetos</h2>
 
                 <pre>
-                    const MAYUS = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-                    const MINUS = "abcdefghijklmnñopqrstuvwxyz";
+                    const abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz";
                     const NUMS = "0123456789";
                 </pre>
 
                 <p>
-                    Se definen constantes que almacenan los conjuntos de caracteres utilizados
-                    durante el cifrado y descifrado. Esto permite que el sistema trabaje con
-                    alfabetos personalizados incluyendo el alfabeto español con la letra ñ
-                    y valores numéricos. El tamaño del alfabeto determina el módulo matemático
-                    utilizado en los cálculos criptográficos.
+                   Estas variables almacenan los conjuntos de caracteres utilizados durante
+                    el proceso de cifrado. Permiten que el usuario seleccione diferentes tipos
+                    de alfabetos y determinan el tamaño del módulo matemático utilizado en los
+                    algoritmos.
                 </p>
 
                 <hr>
 
-                <h2>2. Selección del método de cifrado</h2>
+                <h2>2. Obtención del texto ingresado</h2>
 
-                <pre>
-                    function seleccionarMetodo(tipo){
-                        metodoActual = tipo;
-                    }
-                </pre>
+                    <pre>
+                        let texto = document.getElementById("entrada").value;
+                    </pre>
 
-                <p>
-                    Esta función registra el algoritmo seleccionado por el usuario desde la
-                    interfaz gráfica. El sistema puede alternar dinámicamente entre el cifrado
-                    César y el cifrado Atbash sin necesidad de recargar la aplicación.
-                </p>
+                    <p>
+                        El sistema obtiene el mensaje escrito por el usuario mediante el DOM,
+                        permitiendo procesar la información sin recargar la página.
+                    </p>
 
-                <hr>
+                    <hr>
 
                 <h2>3. Implementación del Cifrado César</h2>
 
                 <pre>
                     function cifradoCesar(texto, desplazamiento, alfabeto){
-                    // procesamiento del texto
+                    let resultado = "";
+
+                    for(let i = 0; i < texto.length; i++){
+                        let indice = alfabeto.indexOf(texto[i]);
+
+                        if(indice !== -1){
+                            let nuevo =
+                            (indice + desplazamiento) % alfabeto.length;
+                            resultado += alfabeto[nuevo];
+                        }else{
+                            resultado += texto[i];
+                        }
+                    }
+                    return resultado;
                     }
                 </pre>
 
                 <p>
-                    El cifrado César funciona desplazando cada carácter una cantidad fija de
-                    posiciones dentro del alfabeto seleccionado. Para lograrlo, el sistema
-                    obtiene la posición del carácter y aplica aritmética modular.
+                    El algoritmo recorre cada carácter del texto, identifica su posición dentro
+                    del alfabeto seleccionado y aplica aritmética modular para calcular la nueva
+                    posición cifrada. El operador módulo permite reiniciar el conteo cuando se
+                    alcanza el final del alfabeto.
                 </p>
 
                 <pre>
                     C = (P + k) mod n
                 </pre>
 
-                <ul>
-                    <li>P: posición original del carácter</li>
-                    <li>k: desplazamiento seleccionado</li>
-                    <li>n: longitud del alfabeto</li>
-                </ul>
-
-                <p>
-                    El uso del operador módulo permite que el desplazamiento continúe desde
-                    el inicio del alfabeto cuando se alcanza el final del mismo.
-                </p>
-
                 <hr>
 
                 <h2>4. Implementación del Cifrado Atbash</h2>
 
-                <pre>
-                    function cifradoAtbash(texto, alfabeto){
-                    // sustitución inversa
-                    }
-                </pre>
+                    <pre>
+                        function cifradoAtbash(texto, alfabeto){
+                        let resultado = "";
 
-                <p>
-                    El algoritmo Atbash realiza una sustitución simétrica invirtiendo el orden
-                    del alfabeto. Cada carácter se reemplaza por su equivalente opuesto,
-                    estableciendo una relación fija entre posiciones.
-                </p>
+                        for(let i = 0; i < texto.length; i++){
+                            let indice = alfabeto.indexOf(texto[i]);
 
-                <pre>
-                    A ↔ Z
-                    B ↔ Y
-                    C ↔ X
-                </pre>
+                            if(indice !== -1){
+                                let nuevo =
+                                alfabeto.length - 1 - indice;
+                                resultado += alfabeto[nuevo];
+                            }else{
+                                resultado += texto[i];
+                            }
+                        }
+                        return resultado;
+                        }
+                    </pre>
 
-                <p>
-                    Debido a su naturaleza simétrica, el mismo proceso sirve tanto para cifrar
-                    como para descifrar mensajes.
-                </p>
+                    <p>
+                        El cifrado Atbash sustituye cada carácter por su equivalente inverso dentro
+                        del alfabeto. Debido a su simetría, el mismo proceso permite cifrar y
+                        descifrar mensajes.
+                    </p>
 
                 <hr>
 
@@ -255,8 +255,8 @@
                 </ol>
 
                 <p>
-                    Este flujo permite demostrar de forma visual y práctica el funcionamiento
-                    de algoritmos criptográficos clásicos dentro de un entorno web interactivo.
+                    Este diseño modular facilita la comprensión del funcionamiento interno del
+                    sistema y permite extender el programa con nuevos métodos criptográficos.
                 </p>
 
     </section>
